@@ -1,13 +1,29 @@
 %h1 Welcome to Banana Land Fantasy Baseball
 %p
-  %a{:href => '#teams'} Teams
-  %a{:href => '#rules'} Rules
-  %a{:href => '#draft'} Draft
-  %a{:href => '#games'} Standings
-  %a{:href => '#stats'} Stats
+  %a{href: '#draft'} Draft
+  %a{href: '#standings'} Standings
+  %a{href: '#keepers'} Keepers
+  %a{href: '#rules'} Rules
+  %a{href: '#stats'} Stats
 
-%h2#teams Teams
-%h2#rules Rules
 %h2#draft Draft
-%h2#games Standings
+
+%p#draft_text
+  The Draft is at #{local_time(@draft_date)}
+  %br
+  Here's a link to a calendar invite: 
+  %a{href: asset_path('/events/fantasydraft.ics')} Download
+
+%h2#standings Standings
+Teams are currently sorted by draft order.
+%ol
+  - @standings.each do |team|
+    %li
+      %a{href: team_path(team)} #{team.name} 
+
+%h2#rules Rules
+
+%h2#keepers Keepers
+
 %h2#stats Stats
+

@@ -73,3 +73,5 @@ end
 gem "haml-rails", "~> 2.0"
 
 gem "pg", "~> 1.3"
+
+gem "local_time", "~> 2.1"
