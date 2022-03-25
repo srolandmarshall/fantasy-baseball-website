@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Order:
+  = @rule.order
+%p
+  %b Text:
+  = @rule.text
+
+= link_to 'Edit', edit_rule_path(@rule)
+\|
+= link_to 'Back', rules_path
