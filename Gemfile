@@ -77,3 +77,5 @@ gem "pg", "~> 1.3"
 gem "local_time", "~> 2.1"
 
 gem "roo", "~> 2.9"
+
+gem "devise", "~> 4.8"

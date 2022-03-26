@@ -70,5 +70,7 @@ Rails.application.configure do
 
   # Allows puma-dev alternative host 
   config.hosts << "baseball.test"
+
+  config.action_mailer.default_url_options = { host: 'baseball.host' }
   
 end

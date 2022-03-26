@@ -7,5 +7,11 @@
     %a.position(href="/players/position/#{position}")= position 
     = (position != @positions.last ? ' | '  : '')
 
+%h3 Other Positions: 
+%h4 
+  - @other_positions.each do |position|
+    %a.position(href="/players/position/#{position}")= position 
+    = (position != @positions.last ? ' | '  : '')
+
 
 = render partial: 'players/player_list', locals: {players: @players}

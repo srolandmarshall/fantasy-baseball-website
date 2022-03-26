@@ -4,26 +4,29 @@ class PlayersController < ApplicationController
   # GET /players or /players.json
   def index
     @players = Player.all.sort_by { |player| player.rank }
-    @positions = Player.positions
+    @positions = Player.positions.sort_by { |pos| pos.downcase }
   end
 
   # GET /players/pitchers
   def pitchers
     @players = Player.pitchers
     @positions = Player::PITCHER_POSITIONS
+    @other_positions = (Player.positions - Player::PITCHER_POSITIONS).sort_by { |pos| pos.downcase }
     render template: "players/_by_position", locals: { players: @players }
   end
 
   # GET /players/batters
   def batters
     @positions = Player.positions - Player::PITCHER_POSITIONS
+    @other_positions = Player::PITCHER_POSITIONS
     @players = Player.batters
     render template: "players/_by_position", locals: { players: @players }
   end
 
   def by_position
     @positions = [params[:position]] || params[:positions]
-    @players = Player.where(position: @positions)
+    @other_positions = (Player.positions - @positions).sort_by { |pos| pos.downcase }
+    @players = Player.by_position(@positions)
     render template: "players/_by_position", locals: { players: @players }
   end
 
