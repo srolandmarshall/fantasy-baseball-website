@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Rank:
+  = @player.rank
+%p
+  %b Name:
+  = @player.name
+%p
+  %b Position:
+  = @player.position
+%p
+  %b Team:
+  = @player.team
+%p
+  %b Adp:
+  = @player.adp
+%p
+  %b Avg cost:
+  = @player.avg_cost
+
+= link_to 'Edit', edit_player_path(@player)
+\|
+= link_to 'Back', players_path

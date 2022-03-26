@@ -1,0 +1,28 @@
+= form_for @player do |f|
+  - if @player.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@player.errors.count, "error")} prohibited this player from being saved:"
+      %ul
+        - @player.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :rank
+    = f.number_field :rank
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :position
+    = f.text_field :position
+  .field
+    = f.label :team
+    = f.text_field :team
+  .field
+    = f.label :adp
+    = f.text_field :adp
+  .field
+    = f.label :avg_cost
+    = f.text_field :avg_cost
+  .actions
+    = f.submit 'Save'

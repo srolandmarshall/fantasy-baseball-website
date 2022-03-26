@@ -21,3 +21,15 @@ TEAMS = [
   {order: 1, name: 'Jordany Valdespins'}
 ]
 TEAMS.each { |team| Team.create(team) }
+PLAYERS_SHEET = Roo::Excelx.new('./public/yahoo_player_rankings.xlsx')
+PLAYER_DATA = PLAYERS_SHEET.parse(headers: true)
+PLAYER_DATA.each do |player|
+  Player.find_or_create_by(
+    rank: player['Rank'],
+    name: player['Player'],
+    position: player['Position'],
+    team: player['Team'],
+    adp: player['ADP'],
+    avg_cost: player['Average Cost'],
+  )
+end
