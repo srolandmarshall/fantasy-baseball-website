@@ -9,22 +9,24 @@ class Player < ApplicationRecord
     self.avg_cost = 0 if avg_cost.blank?
   end
 
-  scope :pitchers, -> { where('position IN ?', PITCHER_POSITIONS) }
-
   def team
     team_id ? Team.find(team_id) : nil
   end
 
-  def positions
-    @positions ||= position.split(',')
+  def pitcher?
+    (position & PITCHER_POSITIONS).any?
   end
 
-  def pitcher?
-    (positions & PITCHER_POSITIONS).any?
+  def self.pitchers
+    @pitchers ||= Player.all.filter {|player| player.pitcher?}
+  end
+
+  def self.hitters
+    @hitters ||= Player.all.filter {|player| !player.pitcher?}
   end
 
   def positions_display
-    positions.join(', ')
+    position.join(', ')
   end
 
   def fantasy_team
