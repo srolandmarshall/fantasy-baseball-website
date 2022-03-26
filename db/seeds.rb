@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # fantasy teams
+puts "Creating Fantasy Teams"
 FANTASY_TEAMS = [
   {order: 12, name: 'Fresh prince'},
   {order: 11, name: 'Bobby Bonilla\'s IRA'},
@@ -24,6 +25,7 @@ FANTASY_TEAMS = [
 FANTASY_TEAMS.each { |team| Team.find_or_create_by(team) }
 
 # players
+puts 'Creating MLB players...'
 PLAYERS_SHEET = Roo::Excelx.new('./public/yahoo_player_rankings.xlsx')
 PLAYER_DATA = PLAYERS_SHEET.parse(headers: true)
 PLAYER_DATA.each_with_index do |player, index|

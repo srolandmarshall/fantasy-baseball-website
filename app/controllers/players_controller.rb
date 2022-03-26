@@ -4,6 +4,7 @@ class PlayersController < ApplicationController
   # GET /players or /players.json
   def index
     @players = Player.all.sort_by { |player| player.rank }
+    @positions = Player.positions
   end
 
   # GET /players/1 or /players/1.json

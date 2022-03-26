@@ -1,6 +1,22 @@
 %h1 Players by Rank
 %a{href: 'yahoo_player_rankings.xlsx'} Download the full list of players by rank
 
+%h2 Filter by Position 
+
+%h3.position-groups Position Groups 
+%p 
+  %a{href:'/players/pitchers'} Pitchers
+  %a{href:'/players/batters'} Batters
+
+%h3.position-groups By Positions
+
+- @positions.each do |position|
+  %a.position(href="/players/position/#{position}")= position 
+  = (position != @positions.last ? ' | '  : '')
+
+%br
+%br
+
 %table
   %thead
     %tr
