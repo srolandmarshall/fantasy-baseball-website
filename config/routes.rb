@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get 'batters', on: :collection
     get '/position/:position', to: 'players#by_position', on: :collection
   end
-  resources :teams, only: [:index, :show]
+  resources :teams, only: [:index, :show, :edit]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
