@@ -32,9 +32,10 @@ PLAYER_DATA.each_with_index do |player, index|
   Player.find_or_create_by(
     rank: player['Rank'],
     name: player['Player'],
-    position: player['Position'],
-    team: player['Team'],
+    position: player['Position'].split(','),
+    mlb_team: player['Team'],
+    team_id: nil,
     adp: player['ADP'],
-    avg_cost: player['Average Cost'],
+    avg_cost: player['Average Cost']
   )
 end

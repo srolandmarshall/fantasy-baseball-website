@@ -9,8 +9,7 @@
       %th Position
       %th Fantasy Team
       %th MLB Team
-      %th Adp
-      %th Avg cost
+      %th ADP
       %th Player Link
 
   %tbody
@@ -18,11 +17,10 @@
       %tr
         %td= player.rank
         %td= player.name
-        %td= player.position
+        %td= player.positions_display
         %td= player.fantasy_team
         %td= player.mlb_team.upcase
         %td= player.adp
-        %td= player.avg_cost
         %td= link_to 'Show', player
 
 %br
