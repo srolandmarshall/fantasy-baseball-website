@@ -23,7 +23,9 @@ TEAMS = [
 TEAMS.each { |team| Team.create(team) }
 PLAYERS_SHEET = Roo::Excelx.new('./public/yahoo_player_rankings.xlsx')
 PLAYER_DATA = PLAYERS_SHEET.parse(headers: true)
-PLAYER_DATA.each do |player|
+PLAYER_DATA.each_with_index do |player, index|
+  next if index == 0
+  
   Player.find_or_create_by(
     rank: player['Rank'],
     name: player['Player'],
