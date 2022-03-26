@@ -21,7 +21,7 @@ FANTASY_TEAMS = [
   {order: 2, name: 'Purple Hayes'},
   {order: 1, name: 'Jordany Valdespins'}
 ]
-FANTASY_TEAMS.each { |team| Team.create(team) }
+FANTASY_TEAMS.each { |team| Team.find_or_create_by(team) }
 
 # players
 PLAYERS_SHEET = Roo::Excelx.new('./public/yahoo_player_rankings.xlsx')
