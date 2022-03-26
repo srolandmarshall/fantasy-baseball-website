@@ -1,4 +1,5 @@
-%h1 Listing players
+%h1 Players by Rank
+%a{href: 'yahoo_player_rankings.xlsx'} Download the full list of players by rank
 
 %table
   %thead
@@ -6,12 +7,11 @@
       %th Rank
       %th Name
       %th Position
-      %th Team
+      %th Fantasy Team
+      %th MLB Team
       %th Adp
       %th Avg cost
-      %th
-      %th
-      %th
+      %th Player Link
 
   %tbody
     - @players.each do |player|
@@ -19,13 +19,10 @@
         %td= player.rank
         %td= player.name
         %td= player.position
-        %td= player.team
+        %td= player.fantasy_team
+        %td= player.mlb_team.upcase
         %td= player.adp
         %td= player.avg_cost
         %td= link_to 'Show', player
-        %td= link_to 'Edit', edit_player_path(player)
-        %td= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
-
-= link_to 'New Player', new_player_path

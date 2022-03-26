@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-TEAMS = [
+# fantasy teams
+FANTASY_TEAMS = [
   {order: 12, name: 'Fresh prince'},
   {order: 11, name: 'Bobby Bonilla\'s IRA'},
   {order: 10, name: 'Marsh\'n Monsters'},
@@ -20,7 +21,9 @@ TEAMS = [
   {order: 2, name: 'Purple Hayes'},
   {order: 1, name: 'Jordany Valdespins'}
 ]
-TEAMS.each { |team| Team.create(team) }
+FANTASY_TEAMS.each { |team| Team.create(team) }
+
+# players
 PLAYERS_SHEET = Roo::Excelx.new('./public/yahoo_player_rankings.xlsx')
 PLAYER_DATA = PLAYERS_SHEET.parse(headers: true)
 PLAYER_DATA.each_with_index do |player, index|
