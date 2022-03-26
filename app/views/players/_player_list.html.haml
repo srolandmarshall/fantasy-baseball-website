@@ -1,0 +1,21 @@
+%table
+  %thead
+    %tr
+      %th Rank
+      %th Name
+      %th Position
+      %th Fantasy Team
+      %th MLB Team
+      %th ADP
+      %th Player Link
+
+  %tbody
+    - @players.each do |player|
+      %tr
+        %td= player.rank
+        %td= player.name
+        %td= player.positions_display
+        %td= player.fantasy_team
+        %td= player.mlb_team.upcase
+        %td= player.adp
+        %td= link_to 'Show', player

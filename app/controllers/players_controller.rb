@@ -7,6 +7,26 @@ class PlayersController < ApplicationController
     @positions = Player.positions
   end
 
+  # GET /players/pitchers
+  def pitchers
+    @players = Player.pitchers
+    @positions = Player::PITCHER_POSITIONS
+    render template: "players/_by_position", locals: { players: @players }
+  end
+
+  # GET /players/batters
+  def batters
+    @positions = Player.positions - Player::PITCHER_POSITIONS
+    @players = Player.batters
+    render template: "players/_by_position", locals: { players: @players }
+  end
+
+  def by_position
+    @positions = [params[:position]] || params[:positions]
+    @players = Player.where(position: @positions)
+    render template: "players/_by_position", locals: { players: @players }
+  end
+
   # GET /players/1 or /players/1.json
   def show
   end

@@ -6,6 +6,10 @@ class Player < ApplicationRecord
   scope :pitchers, -> { where("ARRAY[position]::text[] && ARRAY[?]::text[]", PITCHER_POSITIONS)}
   scope :batters, -> { where.not("ARRAY[position]::text[] && ARRAY[?]::text[]", PITCHER_POSITIONS)}
 
+  def self.by_position(positions)
+    Player.where("ARRAY[position]::text[] && ARRAY[?]::text[]", [positions].flatten)
+  end
+
   def team
     team_id ? Team.find(team_id) : nil
   end
