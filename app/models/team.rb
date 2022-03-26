@@ -1,5 +1,5 @@
 class Team < ApplicationRecord
-  has_many :players, optional: true
+  has_many :players
   
   def to_s
     name
