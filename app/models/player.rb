@@ -21,7 +21,7 @@ class Player < ApplicationRecord
     @pitchers ||= Player.all.filter {|player| player.pitcher?}
   end
 
-  def self.hitters
+  def self.batters
     @hitters ||= Player.all.filter {|player| !player.pitcher?}
   end
 
