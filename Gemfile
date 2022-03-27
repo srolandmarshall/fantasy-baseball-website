@@ -79,3 +79,5 @@ gem "local_time", "~> 2.1"
 gem "roo", "~> 2.9"
 
 gem "devise", "~> 4.8"
+
+gem "dotenv", "~> 2.7"
