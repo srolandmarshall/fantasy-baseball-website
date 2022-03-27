@@ -1,0 +1,7 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Players") do |sheet|
+    sheet.add_row Player.first.attributes.keys
+    Player.all.each do |player|
+        sheet.add_row player.attributes.values
+    end
+end

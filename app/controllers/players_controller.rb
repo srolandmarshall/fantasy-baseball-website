@@ -5,6 +5,10 @@ class PlayersController < ApplicationController
   def index
     @players = Player.all.sort_by { |player| player.rank }
     @positions = Player.positions.sort_by { |pos| pos.downcase }
+    respond_to do |format|
+      format.html { render template: "players/index" }
+      format.xlsx { render xlsx: 'players', filename: 'players.xlsx' }
+    end
   end
 
   # GET /players/pitchers
@@ -90,5 +94,12 @@ class PlayersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def player_params
       params.require(:player).permit(:rank, :name, :position, :team, :adp, :avg_cost)
+    end
+
+    def players_to_xlsx
+      @players = Player.all
+      @players.each do |player|
+        player
+      end
     end
 end

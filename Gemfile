@@ -81,3 +81,7 @@ gem "roo", "~> 2.9"
 gem "devise", "~> 4.8"
 
 gem "dotenv", "~> 2.7"
+
+gem "axlsx_rails", "~> 0.6.1"
+
+gem "axlsx", "~> 1.3"
