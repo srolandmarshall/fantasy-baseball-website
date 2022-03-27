@@ -41,18 +41,4 @@ PLAYER_DATA.each_with_index do |player, index|
     avg_cost: player['Average Cost']
   )
 
-  puts 'Importing Last Year Roster Data'
-  ROSTER_SHEET = Roo::Excelx.new('./public/2021_end_rosters.xlsx')
-  ROSTER_DATA = ROSTER_SHEET.parse(headers: true)
-  ROSTER_DATA.each_with_index do |roster, index|
-    next if index == 0
-
-    Player.find_by(name: roster['Player']).update!(
-      last_year_draft: roster['2021 Draft Position'],
-      last_year_end_rank: roster['2021 Final Rank'],
-      current_o_rank: roster['Current O-Rank'],
-      status: roster['Status']
-    )
-  end
-
 end
