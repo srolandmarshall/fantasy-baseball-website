@@ -5,9 +5,10 @@
       %th Name
       %th Position
       %th Fantasy Team
+      %th 2021 Draft Position
       %th MLB Team
       %th ADP
-      %th Player Link
+      %th Player Links
 
   %tbody
     - @players.each do |player|
@@ -16,6 +17,9 @@
         %td= player.name
         %td= player.positions_display
         %td= player.fantasy_team
+        %td= player.last_year_draft
         %td= player.mlb_team.upcase
         %td= player.adp
-        %td= link_to 'Show', player
+        %td
+          = link_to 'Show', player
+          = link_to 'Edit', player if user_signed_in?

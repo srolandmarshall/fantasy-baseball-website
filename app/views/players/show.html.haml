@@ -1,23 +1,29 @@
 %p#notice= notice
 
 %p
-  %b Rank:
-  = @player.rank
-%p
   %b Name:
   = @player.name
 %p
+  %b Rank:
+  = @player.rank
+%p
+  %b MLB Team:
+  = @player.mlb_team
+%p
   %b Position:
-  = @player.position
+  = @player.positions_display
 %p
   %b Team:
-  = @player.team
+  = @player.fantasy_team
 %p
-  %b Adp:
+  %b Average Draft Position:
   = @player.adp
+%p 
+  %b Last Year's Team: 
+  = @player.last_year_team.name
 %p
-  %b Avg cost:
-  = @player.avg_cost
+  %b 2021 Draft Position:
+  = @player.last_year_draft
 
 - if user_signed_in?
   = link_to 'Edit', edit_player_path(@player)

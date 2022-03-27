@@ -7,22 +7,15 @@
           %li= message
 
   .field
-    = f.label :rank
-    = f.number_field :rank
-  .field
     = f.label :name
     = f.text_field :name
+  -# select team
   .field
-    = f.label :position
-    = f.text_field :position
+    = f.label :team_id
+    = f.collection_select :team_id, Team.all, :id, :name
+  -# Player is a keeper (checkbox)
   .field
-    = f.label :team
-    = f.text_field :team
-  .field
-    = f.label :adp
-    = f.text_field :adp
-  .field
-    = f.label :avg_cost
-    = f.text_field :avg_cost
+    = f.label "Player is a Keeper?"
+    = f.check_box :is_keeper
   .actions
     = f.submit 'Save'

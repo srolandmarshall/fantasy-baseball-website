@@ -22,6 +22,10 @@ class Player < ApplicationRecord
     team ? team.name : "Undrafted"
   end
 
+  def last_year_team
+    Team.find(last_year_team_id)
+  end
+
   def self.positions
     @positions ||= Player.all.map {|player| player.position}.flatten.uniq
   end
