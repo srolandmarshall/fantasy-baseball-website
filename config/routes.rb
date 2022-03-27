@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :rules
   get 'home/index'
-  resources :players, only: [:index, :show] do
+  resources :players, only: [:index, :show, :edit] do
     get 'pitchers', on: :collection
     get 'batters', on: :collection
     get '/position/:position', to: 'players#by_position', on: :collection
