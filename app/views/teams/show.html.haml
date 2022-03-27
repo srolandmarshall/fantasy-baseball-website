@@ -13,6 +13,10 @@
   %b Description:
   = @team.description
 
-= link_to 'Edit', edit_team_path(@team)
+- if user_signed_in?
+  = link_to 'Edit', edit_team_path(@team)
+  \|
+
+= link_to 'All Teams', teams_path
 \|
-= link_to 'Back', teams_path
+= link_to 'Home', home_index_path
