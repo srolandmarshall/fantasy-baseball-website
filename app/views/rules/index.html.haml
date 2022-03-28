@@ -1,10 +1,9 @@
-%h1 Listing rules
+%h1 Official Rules
 
 %table
   %thead
     %tr
-      %th Order
-      %th Text
+      %th
       %th
       %th
       %th
@@ -12,13 +11,13 @@
   %tbody
     - @rules.each do |rule|
       %tr
-        %td= rule.order
-        %td= rule.text
+        %td
+          %li= rule.text
         - if user_signed_in?
           %td= link_to 'Show', rule
           %td= link_to 'Edit', edit_rule_path(rule)
           %td= link_to 'Destroy', rule, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
-
-= link_to 'New Rule', new_rule_path
+- if user_signed_in?
+  = link_to 'New Rule', new_rule_path
