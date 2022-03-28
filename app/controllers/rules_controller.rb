@@ -1,5 +1,8 @@
 class RulesController < ApplicationController
   before_action :set_rule, only: %i[ show edit update destroy ]
+  # user must be logged in to create rules
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
 
   # GET /rules or /rules.json
   def index

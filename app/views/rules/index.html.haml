@@ -14,9 +14,10 @@
       %tr
         %td= rule.order
         %td= rule.text
-        %td= link_to 'Show', rule
-        %td= link_to 'Edit', edit_rule_path(rule)
-        %td= link_to 'Destroy', rule, method: :delete, data: { confirm: 'Are you sure?' }
+        - if user_signed_in?
+          %td= link_to 'Show', rule
+          %td= link_to 'Edit', edit_rule_path(rule)
+          %td= link_to 'Destroy', rule, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
