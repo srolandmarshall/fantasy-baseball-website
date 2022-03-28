@@ -12,7 +12,7 @@ FANTASY_TEAMS = [
   {order: 12, name: 'Fresh prince'},
   {order: 11, name: 'Bobby Bonilla\'s IRA'},
   {order: 10, name: 'Marsh\'n Monsters'},
-  {order: 9, name: 'Yiplords '},
+  {order: 9, name: 'Yiplords'},
   {order: 8, name: 'Cafe Patron'},
   {order: 7, name: 'Pavia & Pete'},
   {order: 6, name: 'Ash Brew Crew'},
