@@ -3,10 +3,10 @@
 %table
   %thead
     %tr
-      %th Order
-      %th Name
-      %th Owners
-      %th Description
+      %th#order Order
+      %th#name Name
+      %th#owners Owners
+      %th#description
       %th
       %th
       %th
@@ -19,7 +19,8 @@
         %td= team.owners
         %td= team.description
         %td= link_to 'Show', team
-        %td= link_to 'Edit', edit_team_path(team)
-        %td= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' }
+        - if user_signed_in?
+          %td= link_to 'Edit', edit_team_path(team)
+          %td= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
