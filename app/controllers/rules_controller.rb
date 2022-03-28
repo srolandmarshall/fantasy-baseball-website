@@ -3,7 +3,7 @@ class RulesController < ApplicationController
 
   # GET /rules or /rules.json
   def index
-    @rules = Rule.all
+    @rules = Rule.all.sort_by(&:order)
   end
 
   # GET /rules/1 or /rules/1.json
@@ -25,7 +25,10 @@ class RulesController < ApplicationController
 
     respond_to do |format|
       if @rule.save
-        format.html { redirect_to rule_url(@rule), notice: "Rule was successfully created." }
+        format.html do 
+          url = params[:save_and_new?] ? new_rule_path : rules_path
+          redirect_to url, notice: "Rule #{@rule.order} was successfully created." 
+        end
         format.json { render :show, status: :created, location: @rule }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -67,4 +70,5 @@ class RulesController < ApplicationController
     def rule_params
       params.require(:rule).permit(:order, :text)
     end
+
 end

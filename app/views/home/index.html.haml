@@ -27,7 +27,9 @@
       %a{href: team_path(team)} #{team.name} 
 
 %h2#rules Rules
-%p Official Rules to Come
+%ul.rules
+  - @rules.each do |rule|
+    %li #{rule.text}
 
 %h2#players Players
 %a{href: '/players'} Full List of Players

@@ -14,3 +14,5 @@
     = f.text_area :text
   .actions
     = f.submit 'Save'
+    -# submit and go to new rule form
+    = f.submit true, name: 'save_and_new?', value: 'Save and Create New'
