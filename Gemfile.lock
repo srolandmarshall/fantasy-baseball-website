@@ -103,7 +103,6 @@ GEM
       responders
       warden (~> 1.2.3)
     digest (3.1.0)
-    dotenv (2.7.6)
     erubi (1.10.0)
     erubis (2.7.0)
     globalid (1.0.0)
@@ -256,6 +255,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    yajl-ruby (1.4.1)
     zeitwerk (2.5.4)
 
 PLATFORMS
@@ -269,7 +269,6 @@ DEPENDENCIES
   caxlsx_rails
   debug
   devise (~> 4.8)
-  dotenv (~> 2.7)
   haml-rails (~> 2.0)
   importmap-rails
   jbuilder
@@ -285,6 +284,7 @@ DEPENDENCIES
   tzinfo-data
   web-console
   webdrivers
+  yajl-ruby (~> 1.4)
 
 RUBY VERSION
    ruby 3.1.1p18

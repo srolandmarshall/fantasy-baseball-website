@@ -17,5 +17,16 @@
   .field
     = f.label "Player is a Keeper?"
     = f.check_box :is_keeper
+  -# If above is checked, show the following fields using stimulus
+  - if @player.is_keeper
+    -# Draft Round
+    .field
+      = f.label :draft_round
+      = f.number_field :draft_round, min: 1, max: 12
+    -# Draft Pick
+    .field
+      = f.label :draft_pick_number
+      = f.number_field :draft_pick_number, min: 1, max: 12
+
   .actions
     = f.submit 'Save'

@@ -93,7 +93,7 @@ class PlayersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def player_params
-      params.require(:player).permit(:rank, :name, :position, :team, :adp, :avg_cost)
+      params.require(:player).permit(:rank, :name, :position, :team, :adp, :avg_cost, :is_keeper, :draft_round, :draft_pick_number)
     end
 
     def players_to_xlsx

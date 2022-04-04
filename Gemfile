@@ -80,7 +80,7 @@ gem "roo", "~> 2.9"
 
 gem "devise", "~> 4.8"
 
-gem "dotenv", "~> 2.7"
-
 gem 'caxlsx'
 gem 'caxlsx_rails'
+
+gem "yajl-ruby", "~> 1.4"

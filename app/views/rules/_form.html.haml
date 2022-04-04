@@ -5,7 +5,7 @@
       %ul
         - @rule.errors.full_messages.each do |message|
           %li= message
-
+  - @rule.id = Rule.last.id + 1
   .field
     = f.label :order
     = f.number_field :order

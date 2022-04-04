@@ -1,0 +1,13 @@
+%table.keepers
+  %tr.keeper-row
+    %td.table-header.keeper-name Keeper Name
+    %td.table-header.keeper-name Team
+    %td.table-header.keeper-round Draft Round
+    %td.table-header.keeper-pick-number Pick Number
+
+  - @keepers.each do |keeper|
+    %tr.keeper-row
+      %td= keeper.name
+      %td= keeper.team
+      %td= keeper.draft_round
+      %td= keeper.draft_pick_number
