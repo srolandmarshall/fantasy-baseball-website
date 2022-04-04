@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :rules
   get 'home/index'
+  get '/zoom', to: 'home#zoom'
   resources :players, only: [:index, :show, :edit, :update] do
     get 'pitchers', on: :collection
     get 'batters', on: :collection
