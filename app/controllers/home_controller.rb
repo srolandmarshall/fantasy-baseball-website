@@ -12,7 +12,7 @@ class HomeController < ApplicationController
   end
 
   def set_zoom_url
-    @zoom_url ||= Rails.application.credentials.zoom[:url] || ENV['ZOOM_URL']
+    @zoom_url ||= ENV['ZOOM_URL'] || Rails.application.credentials&.zoom[:url]
   end
   
 end
