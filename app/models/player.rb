@@ -11,6 +11,14 @@ class Player < ApplicationRecord
     Player.where("ARRAY[position]::text[] && ARRAY[?]::text[]", [positions].flatten).order(:rank)
   end
 
+  def draft_2022
+    if draft_pick_number || draft_round
+      "Round #{draft_round}, Pick #{draft_pick_number}"
+    else
+      "Free Agent"
+    end
+  end
+
   def team
     team_id ? Team.find(team_id) : nil
   end
@@ -20,7 +28,7 @@ class Player < ApplicationRecord
   end
 
   def fantasy_team
-    team ? team.name : "Undrafted"
+    team ? team.name : "Free Agent"
   end
 
   def last_year_team
