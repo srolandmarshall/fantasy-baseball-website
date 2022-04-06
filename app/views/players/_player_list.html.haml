@@ -13,7 +13,7 @@
 
   %tbody
     - @players.each do |player|
-      %tr
+      %tr{ class: player.is_keeper ? 'keeper' : '' }
         %td= player.rank
         %td= player.name
         %td= player.positions_display

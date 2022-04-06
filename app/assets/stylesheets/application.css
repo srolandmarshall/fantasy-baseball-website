@@ -27,3 +27,8 @@ td {
   padding: 5px;
   text-align: center;
 }
+
+.keeper {
+  /* transparent yellow background */
+  background-color: rgba(228, 219, 90, 0.5);
+}
